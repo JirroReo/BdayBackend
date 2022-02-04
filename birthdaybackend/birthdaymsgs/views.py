@@ -6,5 +6,5 @@ from .models import Message
 
 
 class MessageViewSet(viewsets.ModelViewSet):
-    queryset = Message.objects.all().order_by('-date_added')
+    queryset = Message.objects.filter(is_visible=True).order_by('-date_added')
     serializer_class = MessageSerializer
